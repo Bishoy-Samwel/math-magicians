@@ -1,21 +1,21 @@
-.bg-grey {background:rgb(236, 236, 236);}
-.bg-orange{background:LightSalmon;}
+.bg-grey { background: rgb(236, 236, 236); }
+.bg-orange{ background: lightsalmon; }
 
 button {
   text-align: center;
-  display:flex;
-  align-items:center;
+  display: flex;
+  align-items: center;
   justify-content: center;
   min-width: 100px;
   min-height: 70px;
   font-size: 20px;
-  border-width: 0px;
+  border-width: 0;
 }
 
 .container {
   margin: auto;
   width: fit-content;
-  background: LightGray;
+  background: lightgray;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(6, 1fr);
@@ -27,15 +27,15 @@ button {
   grid-column: 1 / 3;
 }
 
-.col-4{
+.col-4 {
   grid-column: 1 / 5;
 }
 
 #result {
   background-color: gray;
   color: aliceblue;
-  display:flex;
-  align-items:center;
+  display: flex;
+  align-items: center;
   justify-content: flex-end;
   padding: 2%;
   font-size: 20px;

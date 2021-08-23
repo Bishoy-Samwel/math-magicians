@@ -2,9 +2,9 @@ import './App.css';
 import React from 'react';
 import Calculator from './components/Calculator';
 
-class App extends React.Component() {
-  constructor(props) {
-    super(props);
+export default class App extends React.Component {
+  constructor() {
+    super();
     this.state = {
     };
   }
@@ -17,5 +17,3 @@ class App extends React.Component() {
     );
   }
 }
-
-export default App;

@@ -2,7 +2,7 @@ import React from 'react';
 
 const Container = () => (
   <div className="container">
-    <button type="button" className="col-4" id="result"> 0 </button>
+    <p className="col-4" id="result"> 0 </p>
     <button type="button" className="bg-grey"> AC </button>
     <button type="button" className="bg-grey"> +/- </button>
     <button type="button" className="bg-grey"> % </button>

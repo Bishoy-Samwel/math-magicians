@@ -29,7 +29,7 @@ export default class Container extends React.Component {
     console.log(dataObj);
     return (
       <div className="container">
-        <Result result={dataObj.result} />
+        <Result result={dataObj.total} />
         <button type="button" btn_name="AC" onClick={this.handleClick} className="bg-grey"> AC </button>
         <button type="button" btn_name="+/-" onClick={this.handleClick} className="bg-grey"> +/- </button>
         <button type="button" btn_name="%" onClick={this.handleClick} className="bg-grey"> % </button>

@@ -1,9 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export default class Result extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { result: 0 };
+    this.state = { result: props.result };
   }
 
   render() {
@@ -15,3 +16,9 @@ export default class Result extends React.Component {
     );
   }
 }
+
+Result.propTypes = {
+  result: PropTypes.string,
+};
+
+Result.defaultProps = { result: 0 };

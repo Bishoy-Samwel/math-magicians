@@ -1,8 +1,10 @@
 import React from 'react';
 
+import Result from './Result';
+
 const Container = () => (
   <div className="container">
-    <p className="col-4" id="result"> 0 </p>
+    <Result />
     <button type="button" className="bg-grey"> AC </button>
     <button type="button" className="bg-grey"> +/- </button>
     <button type="button" className="bg-grey"> % </button>

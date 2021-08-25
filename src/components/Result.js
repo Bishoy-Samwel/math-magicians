@@ -18,7 +18,7 @@ export default class Result extends React.Component {
 }
 
 Result.propTypes = {
-  result: PropTypes.string,
+  result: PropTypes.number,
 };
 
 Result.defaultProps = { result: 0 };

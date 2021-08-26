@@ -44,7 +44,7 @@ export default class Container extends React.Component {
   }
 
   render() {
-    const {result } = this.state;
+    const { result } = this.state;
     return (
       <div className="container">
         <Result result={result} />

@@ -12,6 +12,10 @@ button {
   border-width: 0;
 }
 
+p {
+  margin: 0;
+}
+
 .container {
   margin: auto;
   width: fit-content;

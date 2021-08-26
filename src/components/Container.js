@@ -6,9 +6,12 @@ export default class Container extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      dataObj: { total: null, next: null, operation: null },
+      dataObj: {
+        total: null, next: null, operation: null,
+      },
+      // eslint-disable-next-line react/no-unused-state
+      result: 0,
     };
-    this.handleClick = this.handleClick.bind(this);
   }
 
   // btnName: null,
@@ -20,16 +23,32 @@ export default class Container extends React.Component {
         }
       ),
     );
+    this.setState(
+      (prevState) => (
+        {
+          result: this.getResult(prevState.dataObj, event.target.getAttribute('btn_name')),
+        }
+      ),
+    );
   }
 
-  // this.setState((prevState) => calculate(prevState, buttonName));
+  getResult = (dataObj, btnName) => {
+    if (dataObj.total && !dataObj.next && !dataObj.operation) {
+      return dataObj.total;
+    } if (btnName === 'AC') {
+      return 0;
+    } if ('+-x÷%'.includes(btnName)) {
+      return btnName;
+    }
+    return dataObj.next || dataObj.total;
+  }
 
   render() {
-    const { dataObj } = this.state;
+    const { dataObj, result } = this.state;
     console.log(dataObj);
     return (
       <div className="container">
-        <Result result={dataObj.total} />
+        <Result result={result} />
         <button type="button" btn_name="AC" onClick={this.handleClick} className="bg-grey"> AC </button>
         <button type="button" btn_name="+/-" onClick={this.handleClick} className="bg-grey"> +/- </button>
         <button type="button" btn_name="%" onClick={this.handleClick} className="bg-grey"> % </button>

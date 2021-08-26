@@ -51,18 +51,18 @@ export default function calculate(obj, buttonName) {
       if (obj.next.includes('.')) {
         return {};
       }
-      return { next: `${obj.next}.` };
+      return { next: `${obj.next}.`, total: obj.total, operation: obj.operation };
     }
     if (obj.operation) {
-      return { next: '0.' };
+      return { next: '0.', operation: obj.operation, total: obj.total };
     }
     if (obj.total) {
       if (obj.total.includes('.')) {
         return {};
       }
-      return { total: `${obj.total}.` };
+      return { total: `${obj.total}.`, operation: obj.operation };
     }
-    return { total: '0.' };
+    return { next: '0.', operation: obj.operation, total: obj.total };
   }
 
   if (buttonName === '=') {

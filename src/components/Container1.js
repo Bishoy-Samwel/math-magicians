@@ -6,27 +6,16 @@ export default function Container() {
   const [dataObj, setDataObj] = useState({
     total: null, next: null, operation: null,
   });
-  const [result, setresult] = useState(0);
-
-  const getResult = (dataObj, btnName) => {
-    if (dataObj.total && !dataObj.next && !dataObj.operation) {
-      return dataObj.total;
-    } if (btnName === 'AC') {
-      return 0;
-    } if ('+-x÷%'.includes(btnName)) {
-      return btnName;
-    }
-    return dataObj.next || dataObj.total;
-  };
 
   const handleClick = (event) => {
-    setDataObj({ ...dataObj, ...calculate(dataObj, event.target.getAttribute('btn_name')) });
-    setresult(getResult(dataObj, event.target.getAttribute('btn_name')));
+    const keyPress = event.target.getAttribute('btn_name');
+    setDataObj({ ...dataObj, ...calculate(dataObj, keyPress) });
   };
 
+  const { total, next, operation } = dataObj;
   return (
     <div className="container">
-      <Result result={result} />
+      <Result result={next || operation || total || '0'} />
       <button type="button" btn_name="AC" onClick={handleClick} className="bg-grey"> AC </button>
       <button type="button" btn_name="+/-" onClick={handleClick} className="bg-grey"> +/- </button>
       <button type="button" btn_name="%" onClick={handleClick} className="bg-grey"> % </button>

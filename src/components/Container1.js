@@ -1,5 +1,3 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable react/button-has-type */
 import React, { useState } from 'react';
 import Result from './Result';
 import calculate from '../logic/calculate';
@@ -22,9 +20,7 @@ export default function Container() {
   };
 
   const handleClick = (event) => {
-    console.log('before', dataObj);
     setDataObj({ ...dataObj, ...calculate(dataObj, event.target.getAttribute('btn_name')) });
-    console.log('after', dataObj);
     setresult(getResult(dataObj, event.target.getAttribute('btn_name')));
   };
 

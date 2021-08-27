@@ -13,7 +13,6 @@ export default class Container extends React.Component {
     };
   }
 
-  // btnName: null,
   handleClick = (event) => {
     this.setState(
       (prevState) => (

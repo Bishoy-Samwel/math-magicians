@@ -1,5 +1,3 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable react/button-has-type */
 import React, { useState } from 'react';
 import Result from './Result';
 import calculate from '../logic/calculate';

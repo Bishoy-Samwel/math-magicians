@@ -9,12 +9,10 @@ export default class Container extends React.Component {
       dataObj: {
         total: null, next: null, operation: null,
       },
-      // eslint-disable-next-line react/no-unused-state
       result: 0,
     };
   }
 
-  // btnName: null,
   handleClick = (event) => {
     this.setState(
       (prevState) => (

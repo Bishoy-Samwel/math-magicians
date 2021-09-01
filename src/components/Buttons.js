@@ -1,21 +1,11 @@
-import React, { useState } from 'react';
-import Result from './Result';
-import calculate from '../logic/calculate';
+import React from 'react';
 
-export default function Container() {
-  const [dataObj, setDataObj] = useState({
-    total: null, next: null, operation: null,
-  });
-
-  const handleClick = (event) => {
-    const keyPress = event.target.getAttribute('btn_name');
-    setDataObj({ ...dataObj, ...calculate(dataObj, keyPress) });
-  };
-
-  const { total, next, operation } = dataObj;
+const Buttons = (props) => {
+  // eslint-disable-next-line react/destructuring-assignment
+  // eslint-disable-next-line react/prop-types
+  const { handleClick } = props;
   return (
-    <div className="container">
-      <Result result={next || operation || total || '0'} />
+    <>
       <button type="button" btn_name="AC" onClick={handleClick} className="bg-grey"> AC </button>
       <button type="button" btn_name="+/-" onClick={handleClick} className="bg-grey"> +/- </button>
       <button type="button" btn_name="%" onClick={handleClick} className="bg-grey"> % </button>
@@ -35,6 +25,8 @@ export default function Container() {
       <button type="button" btn_name="0" onClick={handleClick} className="col-2 bg-grey"> 0 </button>
       <button type="button" btn_name="." onClick={handleClick} className="bg-grey"> . </button>
       <button type="button" btn_name="=" onClick={handleClick} className="bg-orange"> = </button>
-    </div>
+    </>
   );
-}
+};
+
+export default Buttons;

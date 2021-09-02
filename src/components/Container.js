@@ -1,7 +1,13 @@
 import React, { useState } from 'react';
-import Result from './Result';
+import {
+  Switch,
+  Route,
+} from 'react-router-dom';
 import calculate from '../logic/calculate';
-import Buttons from './Buttons';
+import Calculator from './Calculator';
+import Navbar from './Navbar';
+import Quote from './Quote';
+import Home from './Home';
 
 export default function Container() {
   const [dataObj, setDataObj] = useState({
@@ -14,10 +20,25 @@ export default function Container() {
   };
 
   const { total, next, operation } = dataObj;
+  const result = next || operation || total || '0';
   return (
-    <div className="container">
-      <Result result={next || operation || total || '0'} />
-      <Buttons handleClick={handleClick} />
-    </div>
+    <>
+      <Navbar />
+      <Switch>
+        <Route exact path="/">
+          <Home />
+        </Route>
+        <Route path="/quote">
+          <Quote />
+        </Route>
+        <Route path="/calc">
+          <Calculator
+            result={result}
+            handleClick={handleClick}
+          />
+        </Route>
+      </Switch>
+
+    </>
   );
 }

@@ -1,71 +1,44 @@
-import React from 'react';
-import Result from './Result';
+import React, { useState } from 'react';
+import {
+  Switch,
+  Route,
+} from 'react-router-dom';
 import calculate from '../logic/calculate';
+import Calculator from './Calculator';
+import Navbar from './Navbar';
+import Quote from './Quote';
+import Home from './Home';
 
-export default class Container extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      dataObj: {
-        total: null, next: null, operation: null,
-      },
-      result: 0,
-    };
-  }
+export default function Container() {
+  const [dataObj, setDataObj] = useState({
+    total: null, next: null, operation: null,
+  });
 
-  handleClick = (event) => {
-    this.setState(
-      (prevState) => (
-        {
-          dataObj: calculate(prevState.dataObj, event.target.getAttribute('btn_name')),
-        }
-      ),
-    );
-    this.setState(
-      (prevState) => (
-        {
-          result: this.getResult(prevState.dataObj, event.target.getAttribute('btn_name')),
-        }
-      ),
-    );
-  }
+  const handleClick = (event) => {
+    const keyPress = event.target.getAttribute('btn_name');
+    setDataObj({ ...dataObj, ...calculate(dataObj, keyPress) });
+  };
 
-  getResult = (dataObj, btnName) => {
-    if (dataObj.total && !dataObj.next && !dataObj.operation) {
-      return dataObj.total;
-    } if (btnName === 'AC') {
-      return 0;
-    } if ('+-x÷%'.includes(btnName)) {
-      return btnName;
-    }
-    return dataObj.next || dataObj.total;
-  }
+  const { total, next, operation } = dataObj;
+  const result = next || operation || total || '0';
+  return (
+    <>
+      <Navbar />
+      <Switch>
+        <Route exact path="/">
+          <Home />
+        </Route>
+        <Route path="/quote">
+          <Quote />
+        </Route>
+        <Route path="/calc">
+          <Calculator
+            result={result}
+            handleClick={handleClick}
+          />
+        </Route>
+      </Switch>
 
-  render() {
-    const { result } = this.state;
-    return (
-      <div className="container">
-        <Result result={result} />
-        <button type="button" btn_name="AC" onClick={this.handleClick} className="bg-grey"> AC </button>
-        <button type="button" btn_name="+/-" onClick={this.handleClick} className="bg-grey"> +/- </button>
-        <button type="button" btn_name="%" onClick={this.handleClick} className="bg-grey"> % </button>
-        <button type="button" btn_name="÷" onClick={this.handleClick} className="bg-orange"> ÷ </button>
-        <button type="button" btn_name="7" onClick={this.handleClick} className="bg-grey"> 7 </button>
-        <button type="button" btn_name="8" onClick={this.handleClick} className="bg-grey"> 8 </button>
-        <button type="button" btn_name="9" onClick={this.handleClick} className="bg-grey"> 9 </button>
-        <button type="button" btn_name="x" onClick={this.handleClick} className="bg-orange"> x </button>
-        <button type="button" btn_name="4" onClick={this.handleClick} className="bg-grey"> 4 </button>
-        <button type="button" btn_name="5" onClick={this.handleClick} className="bg-grey"> 5 </button>
-        <button type="button" btn_name="6" onClick={this.handleClick} className="bg-grey"> 6 </button>
-        <button type="button" btn_name="-" onClick={this.handleClick} className="bg-orange"> - </button>
-        <button type="button" btn_name="1" onClick={this.handleClick} className="bg-grey"> 1 </button>
-        <button type="button" btn_name="2" onClick={this.handleClick} className="bg-grey"> 2 </button>
-        <button type="button" btn_name="3" onClick={this.handleClick} className="bg-grey"> 3 </button>
-        <button type="button" btn_name="+" onClick={this.handleClick} className="bg-orange"> + </button>
-        <button type="button" btn_name="0" onClick={this.handleClick} className="col-2 bg-grey"> 0 </button>
-        <button type="button" btn_name="." onClick={this.handleClick} className="bg-grey"> . </button>
-        <button type="button" btn_name="=" onClick={this.handleClick} className="bg-orange"> = </button>
-      </div>
-    );
-  }
+    </>
+  );
 }

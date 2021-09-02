@@ -15,7 +15,9 @@ It is a Single Page App (SPA) that allows users to:
 
 * Make simple calculations.
 
+
 ![screenshot](https://user-images.githubusercontent.com/29541335/130459898-a081b101-763e-4ccd-a2f5-9bcfb602bc9c.png)
+
 
 
 ## [Live Demo]()

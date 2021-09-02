@@ -1,6 +1,6 @@
 import './App.css';
 import React from 'react';
-import Calculator from './components/Calculator';
+import Container from './components/Container';
 
 export default class App extends React.Component {
   constructor() {
@@ -12,7 +12,7 @@ export default class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <Calculator />
+        <Container />
       </div>
     );
   }

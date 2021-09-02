@@ -88,7 +88,8 @@ ul {
   color: rgb(0, 110, 206, 0.7);
 }
 
-#calc-title,  #calc-desc {
+#calc-title,  
+#calc-desc {
   width: 90%;
   margin: auto;
   margin-top: 2%;
@@ -98,7 +99,8 @@ ul {
   font-size: 25px;
 }
 
-#calc-title, #calc-p {
+#calc-title, 
+#calc-p {
   font-size: 30px;
   font-weight: bold;
   color: rgb(0, 63, 119);

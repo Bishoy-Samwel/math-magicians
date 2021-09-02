@@ -26,9 +26,7 @@ button {
 }
 
 .calc-container {
-  margin-top: 3%;
-  margin-right: 2%;
-  margin: auto;
+  margin: 3% 2% auto;
   width: fit-content;
   background: lightgray;
   display: grid;
@@ -87,7 +85,7 @@ ul {
 
 .navBar-link:hover {
   font-weight: bold;
-  color: rgb(0, 110, 206, .7);
+  color: rgb(0, 110, 206, 0.7);
 }
 
 #calc-title,  #calc-desc {
@@ -100,10 +98,10 @@ ul {
   font-size: 25px;
 }
 
-#calc-title, #calc-p{
+#calc-title, #calc-p {
   font-size: 30px;
   font-weight: bold;
-  color: rgb(0, 63, 119);;
+  color: rgb(0, 63, 119);
 }
 
 #quote-p {
